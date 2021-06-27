@@ -8,14 +8,14 @@
                 <input type="radio" name="flavor" value="vanilla"> vanilla <br/>
                 <input type="radio" name="flavor" value="chocolate"> chocolate <br/>
                 <input type="radio" name="flavor" value="passion"> passion fruit <br>
-                <button type="button" value="Submit" onclick="ValidateForm()"> Submit </button>
+                <button type="button" value="Submit" onclick="readForm()"> Submit </button>
             </form>
         </div>
-
-        <script type="text/javasript">
+        <div id="result"></div>
+        <script>
             function readForm(){
                 var actual_f;
-                var radioButtons = document.getElementsByName("flavor"); //get element by name in the html file
+                var radioButtons = document.getElementsByName("flavor"); 
                 let f = document.getElementsByName("flavor");
 
                 for(var i = 0; i < radioButtons.length; i+=1) {
@@ -24,8 +24,28 @@
                     }
                 }
                 
-                document.getElementById("flavor choice").innerHTML = actual_f;
+                document.getElementById("result").innerHTML = actual_f;
             }    
+        </script>
+
+        <div id="time"></div>
+
+        <script>
+            function clock() {
+                var date = new Date();
+                var hour = date.getHours();
+                var min = date.getMinutes();
+                var sec = date.getSeconds();
+                var time = hour + ":" + min + ":" + sec;
+                setTimeout(1000);
+                //var set = setTimeout(currentTime, 1000);
+                
+
+                document.getElementById("time").innerHTML = time;
+            }
+            
+            clock();
+            setInterval(clock, 1000);
         </script>
     </body>
 </html>
