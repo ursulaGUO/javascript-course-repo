@@ -1,14 +1,31 @@
 <html>
     <title>Icecream</title>
-    <h1>Choose your icecream flavor</h1>
-    <div id="flavor">
-        <form>
-            <input type="radio" name="flavor" value="mango"> mango <br/>
-            <input type="radio" name="flavor" value="vanilla"> vanilla <br/>
-            <input type="radio" name="flavor" value="chocolate"> chocolate <br/>
-            <input type="radio" name="flavor" value="passion"> passion fruit <br>
-            <input type="button" value="submit"> <br/>
-            <br />
-        </form>
-    </div>
+    <body>
+        <h1>Choose your icecream flavor</h1>
+        <div id="flavor choice">
+            <form>
+                <input type="radio" name="flavor" value="mango"> mango <br/>
+                <input type="radio" name="flavor" value="vanilla"> vanilla <br/>
+                <input type="radio" name="flavor" value="chocolate"> chocolate <br/>
+                <input type="radio" name="flavor" value="passion"> passion fruit <br>
+                <button type="button" value="Submit" onclick="ValidateForm()"> Submit </button>
+            </form>
+        </div>
+
+        <script type="text/javasript">
+            function readForm(){
+                var actual_f;
+                var radioButtons = document.getElementsByName("flavor"); //get element by name in the html file
+                let f = document.getElementsByName("flavor");
+
+                for(var i = 0; i < radioButtons.length; i+=1) {
+                    if(radioButtons[i].checked == true) {
+                        actual_f = radioButtons[i].value;
+                    }
+                }
+                
+                document.getElementById("flavor choice").innerHTML = actual_f;
+            }    
+        </script>
+    </body>
 </html>
